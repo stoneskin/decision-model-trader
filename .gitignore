@@ -1,0 +1,75 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# Virtual environments
+.venv/
+venv/
+ENV/
+env/
+.env
+
+# Secrets and local config — never commit
+.env
+*.env
+*.pem
+*.key
+
+# Data (downloaded bars, features, experiment outputs — regenerate, don't commit)
+data/
+*.csv
+*.parquet
+*.pkl
+*.h5
+
+# Model weights (download on the desktop, don't commit)
+models/
+*.safetensors
+*.bin
+*.gguf
+
+# Logs and experiment records kept locally
+logs/
+*.log
+
+# Experiment outputs — decision logs, backtest reports, run records (local only, not published)
+*.jsonl
+outputs/
+runs/
+reports/
+results/
+.cache/
+.ipynb_checkpoints/
+
+# Local machine config and extra credentials — never commit
+config.local.*
+*.local
+credentials*.json
+secrets/
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.swp
+*~
