@@ -42,7 +42,7 @@ def main():
 
     ctx = OpenQuoteContext(host=args.host, port=args.port)
     for sym in SYMBOLS:
-        ret, data = ctx.request_history_kline(
+        ret, data, page_req_key = ctx.request_history_kline(
             sym,
             start="2026-05-26",
             end="2026-11-23",
@@ -63,6 +63,8 @@ def main():
             "to",
             data["time_key"].iloc[-1],
         )
+        if page_req_key:
+            print(sym, "注意：还有后续页（page_req_key 非空），本次只取了第一页")
     ctx.close()
 
 
