@@ -23,7 +23,7 @@ QQQ、TQQQ、SQQQ。
 Jev 可作小模型层候选或对照组；thinktank 不进热循环，只作离线审计
 （每日收盘后复核管线决策）与疑难升级。
 
-拓扑（2026-11-23 定）：本地模型服务跑在台式机上（WSL2，HTTP 服务），DMT 代码经本地地址（127.0.0.1:8099）调用模型。
+拓扑（2026-11-23 定）：本地模型服务跑在台式机上（WSL2，HTTP 服务），DMT 代码经本地地址（127.0.0.1:8099）调用模型。OpenD 配了 RSA（OpenD.xml 里 rsa_private_key），DMT 代码须带密钥加密连接（SysConfig.enable_proto_encrypt + set_init_rsa_file），密钥路径按机器配、不进库。
 
 ```
 1h K 线 → 特征 → 本地小模型 P(涨) → 置信度低 → OpenRouter 大模型复核
@@ -81,7 +81,7 @@ Jev 可作小模型层候选或对照组；thinktank 不进热循环，只作离
 
 OpenD 在常开机的笔记本上（Tailscale 上那台 MSI），台式机是另一台；
 agent 装台式机上、经 Tailscale 连笔记本的 11111。
-（2026-11-23 确认：台式机上跑探针，127.0.0.1:11111 拒绝连接，OpenD 确不在台式机上；DMT 经 Tailscale 连笔记本 11111，OpenD 远程连接待验。）
+（2026-11-23 确认：台式机上跑探针，127.0.0.1:11111 拒绝连接，OpenD 确不在台式机上；DMT 经 Tailscale 连笔记本 11111，OpenD 远程连接待验。另：OpenD.xml 里 ip 是 0.0.0.0，全网卡监听，远程连得通；但 OpenD 配了 RSA，远程连也须带密钥加密。）
 
 ### ② 实验期与考核（默认）
 
